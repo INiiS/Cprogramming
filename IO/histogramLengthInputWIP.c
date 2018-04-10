@@ -2,34 +2,42 @@
 
 #define	IN			1
 #define OUT			0
-#define MAXLETTERS	10 /* Pour fixer un cadre, on limite le nombre de lettres max
-						  d'un mot à 10 */
-
+#define MAXLENGTH	25
 
 int main()
 {
-	int c, state, cc;
-	int wc[MAXLETTERS];
-
-	wc[MAXLETTERS] = 0;
-
+	int c, state, length;
+	int wordCount[MAXLENGTH] = { 0 }; /* Populate the array with 0s */
+	length = 0;
 	state = OUT;
-	while ((c = getchar())!= EOF){
-		if(c == ' ' || c == '\n' || c == '\t'){
+
+	while((c=getchar()) != EOF){ /* For each character in input */
+
+		/*
+		 * Determine if we are in a word, or not
+		 */
+		if( c == ' ' || c == '\n' || c == '\r' || c == '\t'){
 			state = OUT;
 		}
-		else if(state == OUT){
+		else
+		{
 			state = IN;
-			
 		}
 
-		while(state == IN){
-			++cc;
+		if(state == IN){ /*if already in a word */
+				++length;
+			}
+			else
+			{
+				state = OUT;
+				++wordCount[length];
+				length = 0;
+			}
+
 		}
-		++wc[cc];
-	}
-	for(int i = 0; i < MAXLETTERS; ++i){
-		printf("%d letters : %d\n",i,wc[i]);
-	}
+	++wordCount[length]; /* bump last word length */
+	
+	for(int i =1; i < MAXLENGTH; ++i){
+		printf("%d letters words : %d\n", i, wordCount[i]);
+				}
 }
-
