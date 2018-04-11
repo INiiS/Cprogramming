@@ -2,7 +2,7 @@
 
 #define	IN			1
 #define OUT			0
-#define MAXLENGTH	25
+#define MAXLENGTH	11 /*We start counting from 1, so 11 means 10 letters max words */
 
 int main()
 {
@@ -30,7 +30,9 @@ int main()
 			else
 			{
 				state = OUT;
-				++wordCount[length];
+				if(length <= MAXLENGTH){ /* check against maxlength to avoid segfault */
+					++wordCount[length];
+				}
 				length = 0;
 			}
 
@@ -38,6 +40,10 @@ int main()
 	++wordCount[length]; /* bump last word length */
 	
 	for(int i =1; i < MAXLENGTH; ++i){
-		printf("%d letters words : %d\n", i, wordCount[i]);
-				}
+		printf("| %2d | ", i);
+		for (int j = 0; j < wordCount[i] ; ++j){
+			putchar('*');
+		}
+		putchar('\n');
+	}
 }
