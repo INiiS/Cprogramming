@@ -43,12 +43,47 @@ int main()
 
 		}
 	++wordCount[length]; /* bump last word length */
-	
+	printf("Horizontal Histogram\n\n");
+	/* Horizontal histogram */
 	for(int i =1; i < MAXLENGTH; ++i){
 		printf("| %2d | ", i);
 		for (int j = 0; j < wordCount[i] ; ++j){
 			putchar('*');
 		}
 		putchar('\n');
+	} 
+
+	/* Vertical Histogram */
+
+	/* for the vertical one, there is a need of knowing which number of letters
+	 * is the most used. */
+
+	printf("\n\nVertical Histogram\n\n");
+
+	int most = 0;
+	for(int k = 1; k < MAXLENGTH; ++k){
+		if(most < wordCount[k])
+			most = wordCount[k];
 	}
+
+	for(int zz = most; zz > 0; --zz){
+		/* printf("%d|", zz); */
+		for (int l = 1; l < MAXLENGTH; ++l){
+			if(wordCount[l] >= zz)
+				printf("* ");
+			else
+				printf("  ");		
+		}
+		putchar('\n');
+	}
+	for (int m = 1; m < MAXLENGTH; m++){
+		printf("==");
+	}
+	putchar('\n');
+
+	for(int n=1; n < MAXLENGTH; n++){
+		printf("%d ", n);
+	}
+	printf("\n\n");
+
 }
