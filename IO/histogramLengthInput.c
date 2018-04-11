@@ -1,8 +1,13 @@
+/* Exercise 1-13: Write a program to print a histogram of the lengths 
+ * of words in its input. It is easy to draw the histogram with
+ * the bars horizontal; a vertical orientation is more challenging. */
+
+
 #include <stdio.h>
 
 #define	IN			1
 #define OUT			0
-#define MAXLENGTH	11 /*We start counting from 1, so 11 means 10 letters max words */
+#define MAXLENGTH	11 /* We start counting from 1, so 11 means 10 letters max words */
 
 int main()
 {

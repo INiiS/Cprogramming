@@ -1,3 +1,7 @@
+/* Exercise 1-3 : Modify the temperature conversion program to
+ * print a heading above the table */
+
+
 #include <stdio.h>
 
 /* print Fahrenheit-Celsius table
@@ -13,9 +17,10 @@ int main()
     step = 20;      /* step size */
 
     fahr = lower;
+	printf("Fahrenheit  Celsius\n");
     while (fahr <= upper){
         celsius = 5 * (fahr - 32) / 9;
-        printf("%3d %6d\n", fahr, celsius);
+        printf("%6d %8d\n", fahr, celsius);
         fahr = fahr + step;
     }
 }
