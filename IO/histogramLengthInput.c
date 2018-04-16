@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-#define	IN          1
+#define IN          1
 #define OUT         0
 #define MAXLENGTH   11 /* We start counting from 1, so 11 means 10 letters max words */
 
