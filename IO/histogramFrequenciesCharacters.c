@@ -24,8 +24,10 @@ int main(){
 
     /* Drawing the histogram */
     for( int j = 0; j < NB_CHAR; ++j){
-        putchar(j+FIRST_CHAR);
-        printf(" | ");
+        if((j+FIRST_CHAR >= 65 && j+FIRST_CHAR <= 90) || (j+FIRST_CHAR >=97 && j+FIRST_CHAR <=122)){
+            putchar(j+FIRST_CHAR);
+            printf(" | \n");
+        }
         
     }
 
