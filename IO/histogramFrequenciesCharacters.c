@@ -29,7 +29,6 @@ int main(){
 
             putchar(letterIndex);
             printf(" | ");
-           // printf("TEST VALUE : %d   %d\n", letterIndex,charFrequencies[letterIndex]);
             while(charFrequencies[letterIndex] > 0){
                 printf("*");
                 --charFrequencies[letterIndex];
