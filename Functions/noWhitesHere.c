@@ -7,41 +7,35 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
-int getline(char s[], int lim);
 
 int main()
 {
 
-    int len;
-    char line[MAXLINE];
 
-    while((len = getline(line, MAXLINE)) > 0){
-        if(len > 1){
-        printf("%s", line);
+
+    int i, c, sp, n;
+     sp = n = 0;
+
+
+    /*for (i = 0; i < MAXLINE -1 && (c = getchar()) != EOF; ++i){*/
+     while((c=getchar()) != EOF){
+         if(c == '\n')
+             printf("%c", c);
+         if(c == '*'){
+            ++sp;
         }
+        else if(c != '\t'){
+            if(sp == 1){
+                printf(" %c",c);
+                sp = 0;
+            }
+            else if(sp == 0){
+                printf("%c", c); 
+            }
+        }
+       
+
     }
-
-
-}
-
-
-
-
-
-
-
-int getline(char s[], int lim)
-{
-    int c, i;
-
-    for (i = 0; i < lim -1 && (c = getchar()) != EOF && c!= '\n'; ++i){
-        s[i] = c;
-    }
-    if(c == '\n'){
-        s[i] = c;
-        ++i;
-    }
-    s[i] = '\0';
-    return i;
+    
 
 }
